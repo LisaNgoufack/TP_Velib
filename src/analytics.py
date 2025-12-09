@@ -46,7 +46,7 @@ def get_top_stations(limit=10):
                 "sum_bikes": {"$sum": "$numbikesavailable"},
             }
         },
-        {"$sort": {"avg_bikes": -1}},   # ou "sum_bikes" selon ce que tu veux
+        {"$sort": {"avg_bikes": -1}},   # ou "sum_bikes"
         {"$limit": limit},
         {
             "$project": {

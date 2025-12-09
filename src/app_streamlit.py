@@ -54,7 +54,7 @@ if top_stations:
     st.bar_chart(df_st, x="station", y="avg_bikes")  # ou "sum_bikes"
 
 
-# Filtre par commune sur la carte
+# Filtre par communes sur la carte
 
 st.subheader("Carte des stations Vélib")
 
@@ -117,7 +117,7 @@ if ts_data:
     ).sort_values("timestamp")
     st.line_chart(df_ts, x="timestamp", y="total_bikes")
 
-# Prévisions du nombre de vélo
+# Prévisions du nombre de vélos
 st.subheader("Prévision globale du nombre de vélos (LinReg vs RandomForest)")
 
 forecast_res = get_forecast_total_bikes()

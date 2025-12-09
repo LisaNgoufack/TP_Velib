@@ -2,7 +2,7 @@ import json
 from datetime import datetime, timedelta
 from pymongo import MongoClient
 
-# 1) Connexion Mongo
+# 1) Connexion Mongodb
 client = MongoClient("mongodb://localhost:27017")
 db = client["velib"]
 col = db["stations_status"]

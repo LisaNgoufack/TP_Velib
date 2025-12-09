@@ -6,7 +6,7 @@ from pymongo import MongoClient
 client = MongoClient("mongodb://localhost:27017")
 db = client["velib"]
 ## col = db["stations_status"]
-col = db["stations_status_real"]  # <- nouvelle collection pour les données API réelles
+col = db["stations_status_real"]  # collection pour les données API réelles
 
 URL = "https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/velib-disponibilite-en-temps-reel/records?limit=20"
 

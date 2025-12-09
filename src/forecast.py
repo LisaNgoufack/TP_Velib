@@ -39,7 +39,7 @@ if __name__ == "__main__":
     model = LinearRegression()
     model.fit(X, y)
 
-    # Prédiction pour les points existants (pour voir le fit) + un point futur
+    # Prédiction pour les points existants + un point futur
     df["pred"] = model.predict(X)
 
     t_future = len(df)
