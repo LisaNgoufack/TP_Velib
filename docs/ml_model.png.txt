@@ -1,0 +1,52 @@
+┌───────────────────────────────────────────┐
+│             FEATURES D’ENTRÉE             │
+├───────────────────────────────────────────┤
+│ t : index temporel (0, 1, 2, …)           │
+│ hour : heure de la journée                │
+│ weekday : jour de la semaine (0–6)        │
+│ is_weekend : 0 = semaine, 1 = week-end    │
+└───────────────────────────────────────────┘
+                     │
+                     │  X (features)
+                     ▼
+        ┌──────────────────────────────────┐
+        │              MODÈLES             │
+        ├──────────────────────────────────┤
+        │  ┌────────────────────────────┐  │
+        │  │      LinearRegression      │  │
+        │  │ Baseline linéaire entre    │  │
+        │  │ features et total_bikes    │  │
+        │  └────────────────────────────┘  │
+        │                                  │
+        │  ┌────────────────────────────┐  │
+        │  │   RandomForestRegressor    │  │
+        │  │  (n_estimators = 200)      │  │
+        │  │ Modèle non linéaire        │  │
+        │  │ capture mieux les variations│ │
+        │  └────────────────────────────┘  │
+        └──────────────────────────────────┘
+                     │
+                     ▼
+┌───────────────────────────────────────────┐
+│        PRÉDICTIONS / ÉVALUATION           │
+├───────────────────────────────────────────┤
+│  ┌─────────────────────────────────────┐  │
+│  │ Prédiction ŷ_lin                    │  │
+│  │ Total de vélos au pas suivant       │  │
+│  │ RMSE_lin : erreur du modèle         │  │
+│  └─────────────────────────────────────┘  │
+│                                           │
+│  ┌─────────────────────────────────────┐  │
+│  │ Prédiction ŷ_rf                     │  │
+│  │ Total de vélos au pas suivant       │  │
+│  │ RMSE_rf : erreur plus faible        │  │
+│  │         que LinearRegression        │  │
+│  └─────────────────────────────────────┘  │
+└───────────────────────────────────────────┘
+
+Note :
+Les deux modèles sont entraînés sur la même série temporelle globale
+(total de vélos disponibles) et comparés via la RMSE (Root Mean Squared Error).
+
+Plus RMSE est faible, meilleur est le modèle.
+RandomForest a en général un RMSE plus faible que LinearRegression.
